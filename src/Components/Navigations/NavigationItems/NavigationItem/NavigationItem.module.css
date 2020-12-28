@@ -1,0 +1,15 @@
+.NavigationItem {
+    display: block;
+    width: auto;
+    height: 100%;
+}
+
+.NavigationItem a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.NavigationItem a:hover {
+    color: #ff8000;
+}
