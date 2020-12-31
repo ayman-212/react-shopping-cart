@@ -8,7 +8,7 @@ const layout = (props) => (
     <div className={classes.Layout}>
         <Toolbar />
         <main>
-            Shopping Items
+            {props.children}
         </main>
         <Footer />
     </div>

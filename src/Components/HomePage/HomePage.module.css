@@ -1,0 +1,12 @@
+.HomePage {
+    display: grid;
+    grid-template-columns: 75% 24%;
+    grid-template-rows: 1fr;
+    gap: 0% 1%;
+    grid-template-areas:
+        "ProductsList Sidebar";
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+}
