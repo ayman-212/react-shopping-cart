@@ -2,11 +2,14 @@
 import React from "react";
 
 import Layout from "./hoc/Layout/Layout";
+import HomePage from "./Components/HomePage/HomePage";
 
 function App() {
-  return (
-    <Layout />
-  );
+    return (
+        <Layout >
+            <HomePage />
+        </Layout>
+    );
 }
 
 export default App;
