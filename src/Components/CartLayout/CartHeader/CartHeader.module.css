@@ -1,0 +1,7 @@
+.CartHeader {
+    border-bottom: 1px solid silver;
+    margin-bottom: 10px;
+    padding: 10px 2px;
+    font-size: 16px;
+    box-sizing: border-box;
+}

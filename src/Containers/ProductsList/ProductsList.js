@@ -1,63 +1,44 @@
 import React, { Component } from "react";
+import { connect } from "react-redux"
 
-import data from "../../data.json";
 import classes from "./ProductsList.module.css";
 import ProductsItems from "../../Components/ProductsItems/ProductsItems";
-import Filter from "../../Components/Filter/Filter"
+import Filter from "../../Components/Filter/Filter";
+import * as action from "../../store/actions/index";
 
 class ProductsList extends Component {
-    state = {
-        products: data.products,
-        size: "",
-        sort: ""
-    }
-
-    filterProductsHandler = (event) => {
-        if (event.target.value === "ALL") {
-            this.setState({
-                products: data.products,
-                size: event.target.value
-            })
-        } else {
-            const updatedProducts = data.products.filter(product => {
-                return product.availableSizes.indexOf(event.target.value) >= 0;
-            })
-            this.setState({
-                products: updatedProducts,
-                size: event.target.value
-            })
-        }
-    }
-
-    sortProductsHandler = (event) => {
-        const updatedState = this.state.products;
-        updatedState.sort((a, b) => {
-            switch (event.target.value) {
-                case "lowest": return a.price - b.price;
-                case "highest": return b.price - a.price;
-                default: return (a._id > b._id) ? 1 : -1;
-            }
-        });
-
-        this.setState({
-            sort: event.target.value,
-            products: updatedState
-        })
-    }
 
     render() {
         return (
             <div className={classes.ProductsList}>
                 <Filter
-                    count={this.state.products.length}
-                    size={this.state.size}
-                    sort={this.state.sort}
-                    filterProducts={this.filterProductsHandler}
-                    sortProducts={this.sortProductsHandler} />
-                <ProductsItems items={this.state.products} />
+                    count={this.props.prod.length}
+                    size={this.props.siz}
+                    sort={this.props.sor}
+                    filterProducts={(event) => this.props.onFilterProducts(event)}
+                    sortProducts={(event) => this.props.onSortProducts(event)} />
+                <ProductsItems
+                    items={this.props.prod}
+                    addToCart={this.props.onAddToCart} />
             </div>
         )
     }
 };
 
-export default ProductsList
+const mapStateToProps = state => {
+    return {
+        prod: state.productList.products,
+        siz: state.productList.size,
+        sor: state.productList.sort,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onFilterProducts: (event) => dispatch(action.filterProducts(event)),
+        onSortProducts: (event) => dispatch(action.sortProducts(event)),
+        onAddToCart: (product) => dispatch(action.addToCart(product))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsList);

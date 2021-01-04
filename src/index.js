@@ -3,10 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createStore, combineReducers, compose, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+
+import productsReducer from "./store/reducers/productsReducer";
+import cartReducer from "./store/reducers/cartReducer";
+
+const rootReducer = combineReducers({
+  productList: productsReducer,
+  cart: cartReducer
+});
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware()));
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
+
   </React.StrictMode>,
   document.getElementById('root')
 );

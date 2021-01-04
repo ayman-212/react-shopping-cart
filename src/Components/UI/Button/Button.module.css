@@ -1,9 +1,7 @@
 .Button {
     border: 1px solid silver;
-    background-color: #f0c040;
     box-sizing: border-box;
-    padding: 10px;
-    flex: 1 1;
+    padding: 10px 20px;
     font-size: 16px;
     text-align: center;
     cursor: pointer;
@@ -12,4 +10,12 @@
 
 .Button:hover {
     border: 1px solid #808080;
+}
+
+.Success {
+    background-color: #f0c040;
+}
+
+.Remove {
+    background-color: #f0f0f0;
 }
