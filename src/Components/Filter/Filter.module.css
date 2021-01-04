@@ -1,0 +1,30 @@
+.Filter {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid silver;
+    padding: 0 5px;
+    box-sizing: border-box;
+    height: 45px;
+}
+
+.Filter p {
+    flex: 1 0;
+    font-size: 16px;
+}
+
+.Filter div {
+    flex: 1 0;
+}
+
+.Filter div label {
+    font-size: 16px;
+    margin-right: 2px;
+}
+
+.Filter div select {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 16px;
+    border: 1px solid silver;
+    outline: none;
+}

@@ -11,7 +11,8 @@ const productsItems = (props) => (
                 title={item.title}
                 price={item.price}
                 image={item.image}
-                 />
+                id={item._id}
+            />
         })}
     </ul>
 );

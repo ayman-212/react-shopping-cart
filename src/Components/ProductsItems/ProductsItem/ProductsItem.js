@@ -6,7 +6,7 @@ import Button from "../../UI/Button/Button";
 const productsItem = (props) => (
     <li className={classes.ProductsItem}>
         <div className={classes.Product}>
-            <a href={"#" + props.key}>
+            <a href={"#" + props.id}>
                 <img src={props.image} alt={props.title} />
                 <p>{props.title}</p>
             </a>
