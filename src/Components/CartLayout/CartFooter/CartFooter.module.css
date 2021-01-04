@@ -1,0 +1,17 @@
+.CartFooter {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.CartFooter p {
+    flex: 1;
+    font-size: 20px;
+}
+
+.CartFooter button {
+    flex: 1;
+}

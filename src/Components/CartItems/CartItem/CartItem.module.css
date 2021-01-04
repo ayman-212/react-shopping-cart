@@ -1,0 +1,36 @@
+.CartItem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+.Title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Title img {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 10px;
+}
+
+.Title p {
+    font-size: 16px;
+}
+
+.Price {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.Price p {
+    font-size: 16px;
+    margin-right: 5px;
+}

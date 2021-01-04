@@ -12,7 +12,9 @@ const productsItem = (props) => (
             </a>
             <div className={classes.ProductPriceAndOrder}>
                 <p>${props.price} </p>
-                <Button>Add To Cart</Button>
+                <Button
+                    clicked={props.addToCart}
+                    btnType="Success">Add To Cart</Button>
             </div>
         </div>
     </li>
