@@ -8,10 +8,12 @@ import { Provider } from "react-redux";
 
 import productsReducer from "./store/reducers/productsReducer";
 import cartReducer from "./store/reducers/cartReducer";
+import checkoutFormReducer from "./store/reducers/checkoutFormReducer";
 
 const rootReducer = combineReducers({
   productList: productsReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  checkout: checkoutFormReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

@@ -1,0 +1,35 @@
+.CheckoutForm {
+    width: 100%;
+    padding: 0 15px 0 5px;
+    box-sizing: border-box;
+    margin-top: 15px;
+}
+
+.Form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.Form input {
+    display: block;
+    width: 100%;
+    padding: 12px 3px;
+    box-sizing: border-box;
+    margin: 0 10px 15px 10px;
+    outline: none;
+    border: 1px solid silver;
+}
+
+.Form label {
+    display: block;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.Form button {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
+}

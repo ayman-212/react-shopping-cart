@@ -18,7 +18,8 @@ class Cart extends Component {
                 />
                 <CartFooter
                     length={this.props.cartIt.length}
-                    cartItems={this.props.cartIt} />
+                    totalPrice={this.props.pr.toFixed(2)}
+                    showCheckout={this.props.onProcessingCheckoutForm} />
             </div>
         )
     }
@@ -26,12 +27,14 @@ class Cart extends Component {
 const mapStateToProps = state => {
     return {
         cartIt: state.cart.cartItems,
+        pr: state.cart.totalPrice
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onRemoveItem: (cartItem) => dispatch(actions.removeItem(cartItem))
+        onRemoveItem: (cartItem) => dispatch(actions.removeItem(cartItem)),
+        onProcessingCheckoutForm : () => dispatch (actions.processingCheckoutForm())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

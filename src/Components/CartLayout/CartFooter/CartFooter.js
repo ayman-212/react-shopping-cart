@@ -8,10 +8,10 @@ const cartFooter = (props) => {
     if (props.length > 0) {
         cart = (
             <div className={classes.CartFooter}>
-                <p>Total ${props.cartItems.reduce((a, b) => {
-                    return a + b.price * b.count
-                }, 0).toFixed(2)}</p>
-                <Button btnType="Success">Procced</Button>
+                <p>Total ${props.totalPrice}</p>
+                <Button
+                    btnType="Success"
+                    clicked={props.showCheckout}>Procced</Button>
             </div>
         )
     }
