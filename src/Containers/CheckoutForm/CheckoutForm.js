@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import Fade from "react-reveal/Fade"
 
 import Button from "../../Components/UI/Button/Button";
 import classes from "./CheckoutForm.module.css";
+
 
 class CheckoutForm extends Component {
     state = {
@@ -37,33 +39,35 @@ class CheckoutForm extends Component {
         return (
             <div className={classes.CheckoutForm}>
                 {this.props.showCheckout ?
-                    <form className={classes.Form} onSubmit={this.onSubmitHandler}>
-                        <label>Email</label>
-                        <input
-                            type="email"
-                            placeholder="Enter Your Email"
-                            value={this.state.email}
-                            onChange={this.onChangeHandler}
-                            name="email"
-                        ></input>
-                        <label>Name</label>
-                        <input
-                            type="text"
-                            placeholder=" Your Name:"
-                            value={this.state.name}
-                            onChange={this.onChangeHandler}
-                            name="name"
-                        ></input>
-                        <label>Address</label>
-                        <input
-                            type="text"
-                            placeholder="Enter Your Address"
-                            value={this.state.address}
-                            onChange={this.onChangeHandler}
-                            name="address"
-                        ></input>
-                        <Button btnType="Success">Checkout</Button>
-                    </form>
+                    <Fade right big>
+                        <form className={classes.Form} onSubmit={this.onSubmitHandler}>
+                            <label>Email</label>
+                            <input
+                                type="email"
+                                placeholder="Enter Your Email"
+                                value={this.state.email}
+                                onChange={this.onChangeHandler}
+                                name="email"
+                            ></input>
+                            <label>Name</label>
+                            <input
+                                type="text"
+                                placeholder=" Your Name:"
+                                value={this.state.name}
+                                onChange={this.onChangeHandler}
+                                name="name"
+                            ></input>
+                            <label>Address</label>
+                            <input
+                                type="text"
+                                placeholder="Enter Your Address"
+                                value={this.state.address}
+                                onChange={this.onChangeHandler}
+                                name="address"
+                            ></input>
+                            <Button btnType="Success">Checkout</Button>
+                        </form>
+                    </Fade>
                     :
                     null}
             </div>
