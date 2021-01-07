@@ -5,12 +5,19 @@ import classes from "./ProductsList.module.css";
 import ProductsItems from "../../Components/ProductsItems/ProductsItems";
 import Filter from "../../Components/Filter/Filter";
 import Modal from "../../Components/UI/Modal/Modal";
+import ProductDetails from "../../Components/ProductsItems/ProductDetails/ProductDetails";
 import * as action from "../../store/actions/index";
+import axios from "../../axios-orders";
 
 class ProductsList extends Component {
     state = {
         product: null,
-        showModal: false
+        showModal: false,
+        data: null,
+    }
+
+    componentDidMount() {
+        console.log("A");
     }
 
     openMoadalHandler = (item) => {
@@ -41,10 +48,13 @@ class ProductsList extends Component {
                     openModal={this.openMoadalHandler} />
                 <Modal
                     modalIsOpen={this.state.showModal}
-                    closeModal={this.closeModalHandler}
-                    requestToClose={this.closeModalHandler}
-                    ProductDetails={this.state.product}
-                    addToCart={this.props.onAddToCart} />
+                    requestToClose={this.closeModalHandler}>
+                    <ProductDetails
+                        closeModal={this.closeModalHandler}
+                        details={this.state.product}
+                        addToCart={this.props.onAddToCart} />
+                </Modal>
+
             </div>
         )
     }
