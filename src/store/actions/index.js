@@ -1,6 +1,7 @@
 export {
     filterProducts,
-    sortProducts
+    sortProducts,
+    fetchProducts
 } from "./products";
 
 export {

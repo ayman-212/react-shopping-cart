@@ -7,17 +7,17 @@ import Filter from "../../Components/Filter/Filter";
 import Modal from "../../Components/UI/Modal/Modal";
 import ProductDetails from "../../Components/ProductsItems/ProductDetails/ProductDetails";
 import * as action from "../../store/actions/index";
-import axios from "../../axios-orders";
+import Spinner from "../../Components/UI/Spinner/Spinner";
+import Aux from "../../hoc/Auxiliry/Auxiliry";
 
 class ProductsList extends Component {
     state = {
         product: null,
         showModal: false,
-        data: null,
     }
 
     componentDidMount() {
-        console.log("A");
+        this.props.onFetchProducts();
     }
 
     openMoadalHandler = (item) => {
@@ -34,13 +34,15 @@ class ProductsList extends Component {
     }
 
     render() {
-        return (
-            <div className={classes.ProductsList}>
+        let products = this.props.err && !this.props.loading ? <p>Products can't be loaded!!</p> : <Spinner />
+
+        if (this.props.prod) {
+            products = <Aux>
                 <Filter
                     count={this.props.prod.length}
                     size={this.props.siz}
                     sort={this.props.sor}
-                    filterProducts={(event) => this.props.onFilterProducts(event)}
+                    filterProducts={(event) => this.props.onFilterProducts(event.target.value)}
                     sortProducts={(event) => this.props.onSortProducts(event)} />
                 <ProductsItems
                     items={this.props.prod}
@@ -54,7 +56,11 @@ class ProductsList extends Component {
                         details={this.state.product}
                         addToCart={this.props.onAddToCart} />
                 </Modal>
-
+            </Aux>
+        }
+        return (
+            <div className={classes.ProductsList}>
+                {this.props.loading ? <Spinner /> : products}
             </div>
         )
     }
@@ -62,17 +68,20 @@ class ProductsList extends Component {
 
 const mapStateToProps = state => {
     return {
-        prod: state.productList.products,
-        siz: state.productList.size,
-        sor: state.productList.sort,
+        prod: state.productsList.products,
+        siz: state.productsList.size,
+        sor: state.productsList.sort,
+        err: state.productsList.error,
+        loading: state.productsList.loading
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFilterProducts: (event) => dispatch(action.filterProducts(event)),
+        onFilterProducts: (eventValue) => dispatch(action.filterProducts(eventValue)),
         onSortProducts: (event) => dispatch(action.sortProducts(event)),
-        onAddToCart: (product) => dispatch(action.addToCart(product))
+        onAddToCart: (product) => dispatch(action.addToCart(product)),
+        onFetchProducts: () => dispatch(action.fetchProducts())
     }
 }
 
