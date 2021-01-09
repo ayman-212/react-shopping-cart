@@ -6,7 +6,7 @@ import classes from "./HomePage.module.css";
 
 const homePage = (props) => (
     <div className={classes.HomePage}>
-        <ProductsList />
+        <ProductsList {...props} />
         <Sidebar />
     </div>
 );
