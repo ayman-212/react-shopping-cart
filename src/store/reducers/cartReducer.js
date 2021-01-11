@@ -10,7 +10,10 @@ const initialState = {
         localStorage.getItem("price") ?
             JSON.parse(localStorage.getItem("price"))
             :
-            0
+            0,
+    showingCheckout: false,
+    order: null,
+    loading: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -34,7 +37,7 @@ const reducer = (state = initialState, action) => {
                 return a + b.price * b.count
             }, 0)
             localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
-            localStorage.setItem("price", JSON.stringify(updatedPrice))
+            localStorage.setItem("price", JSON.stringify(updatedPrice));
             return {
                 ...state,
                 cartItems: updatedCartItems,
@@ -49,13 +52,39 @@ const reducer = (state = initialState, action) => {
                 return a + b.price * b.count
             }, 0);
             localStorage.setItem("cartItems", JSON.stringify(upCartItems));
-            localStorage.setItem("price", JSON.stringify(upPrice))
+            localStorage.setItem("price", JSON.stringify(upPrice));
+            if (upCartItems.length === 0) {
+                state.showingCheckout = false
+            }
             return {
                 ...state,
                 cartItems: upCartItems,
-                totalPrice: upPrice
+                totalPrice: upPrice,
             }
-
+        case actionTypes.PROCESSING_CHECKOUT_FORM:
+            return {
+                ...state,
+                showingCheckout: true
+            }
+        case actionTypes.PURCHASE_ORDER_START:
+            return {
+                ...state,
+                loading: true
+            }
+        case actionTypes.PURCHASE_ORDER_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                order: {
+                    ...action.order,
+                    id: action.id
+                }
+            }
+        case actionTypes.PURCHASE_ORDER_FAIL:
+            return {
+                ...state,
+                loading: false
+            }
         default: return state;
 
     }

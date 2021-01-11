@@ -18,7 +18,6 @@ class ProductsList extends Component {
 
     componentDidMount() {
         this.props.onFetchProducts();
-        console.log(this.props)
     }
 
     openMoadalHandler = (item) => {

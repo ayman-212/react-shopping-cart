@@ -6,9 +6,7 @@ export {
 
 export {
     addToCart,
-    removeItem
+    removeItem,
+    processingCheckoutForm,
+    purchaseOrder
 } from "./cart";
-
-export {
-    processingCheckoutForm
-} from "./checkoutForm";

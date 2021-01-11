@@ -6,6 +6,7 @@
     text-align: center;
     cursor: pointer;
     outline: none;
+    transition: all 0.3s ease-in-out;
 }
 
 .Button:hover {
@@ -16,6 +17,14 @@
     background-color: #f0c040;
 }
 
+.Success:hover {
+    background-color: #ff8000;
+}
+
 .Remove {
     background-color: #f0f0f0;
+}
+
+.Remove:hover {
+    background-color: #a9a9a9;
 }

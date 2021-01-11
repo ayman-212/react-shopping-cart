@@ -1,0 +1,40 @@
+.OrderDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.OrderDetails div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.OrderDetails h2 {
+    color: #ff8000;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.OrderDetails div p:first-child {
+    font-weight: bold;
+    font-size: 18px;
+    color: #203040;
+    letter-spacing: 1px;
+}
+
+.OrderDetails button {
+    width: 40%;
+    margin: 20px auto;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
