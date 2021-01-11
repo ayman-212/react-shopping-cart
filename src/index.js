@@ -10,12 +10,10 @@ import './index.css';
 import App from './App';
 import productsReducer from "./store/reducers/productsReducer";
 import cartReducer from "./store/reducers/cartReducer";
-import checkoutFormReducer from "./store/reducers/checkoutFormReducer";
 
 const rootReducer = combineReducers({
   productsList: productsReducer,
   cart: cartReducer,
-  checkout: checkoutFormReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

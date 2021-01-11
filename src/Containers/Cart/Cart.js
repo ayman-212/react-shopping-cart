@@ -28,14 +28,13 @@ const mapStateToProps = state => {
     return {
         cartIt: state.cart.cartItems,
         pr: state.cart.totalPrice,
-        loading: state.productsList.loading
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onRemoveItem: (cartItem) => dispatch(actions.removeItem(cartItem)),
-        onProcessingCheckoutForm : () => dispatch (actions.processingCheckoutForm())
+        onProcessingCheckoutForm: () => dispatch(actions.processingCheckoutForm())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

@@ -9,7 +9,7 @@ import CheckoutForm from "../../Containers/CheckoutForm/CheckoutForm";
 const sidebar = (props) => (
     <div className={classes.Sidebar}>
         <Cart />
-        <CheckoutForm />
+        <CheckoutForm {...props} />
     </div>
 );
 
