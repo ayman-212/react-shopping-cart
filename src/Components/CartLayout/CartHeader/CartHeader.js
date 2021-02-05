@@ -9,7 +9,7 @@ const cartHeader = (props) => {
     }
 
     let cart = (<div className={classes.CartHeader}>
-        <p>Your cart is empty</p>
+        <p>Your cart is empty aaaaa</p>
         <i
             className='fas fa-cart-arrow-down'
             style={style}>

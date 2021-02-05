@@ -11,7 +11,6 @@ function App() {
             <Switch>
                 <Route path="/" component={HomePage} /> 
             </Switch>
-            a7aaaaaa
         </Layout>
     );
 }
